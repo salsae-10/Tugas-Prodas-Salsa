@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Itoshi Sae's Fan Base</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", "Noto Sans JP", sans-serif;
+            color: #222;
+            background-color: #ffffff;
+        }
+
+        .header {
+            width: 100%;
+            height: 650px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #9B2E52;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .logo {
+            width: 200px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffb3c6;
+        }
+
+        nav span {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 650px;
+            overflow: hidden;
+            background-color: #222;
+        }
+
+        .Banner1, .Banner2, .Banner3, .Banner4 {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: cycleSlides 16s infinite;
+        }
+
+        .Banner1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.65)), url("Banner1.jpg");
+            animation-delay: 0s;
+        }
+
+        .Banner2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.65)), url("Banner2.jpg");
+            animation-delay: 4s;
+        }
+
+        .Banner3 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.65)), url("Banner3.jpg");
+            animation-delay: 8s;
+        }
+
+        .Banner4 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.65)), url("Banner4.jpg");
+            animation-delay: 12s;
+        }
+
+        .banner-title {
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 900;
+            font-size: 70px;
+            letter-spacing: 6px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .banner-subtitle {
+            color: #ffffff;
+            font-family: "Noto Sans JP", sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: 12px;
+            margin-top: -5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            opacity: 0.9;
+        }
+
+        @keyframes cycleSlides {
+            0% { opacity: 0; }
+            5% { opacity: 1; }
+            25% { opacity: 1; }
+            30% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .content {
+            width: 100%;
+            min-height: 500px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            background-color: #fff;
+        }
+
+        .sidebar-titles {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .title-box {
+            background-color: #9B2E52;
+            color: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(155, 46, 82, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .title-box:hover {
+            background-color: #7a223f;
+            transform: translateX(8px);
+            box-shadow: 0 6px 15px rgba(155, 46, 82, 0.4);
+        }
+
+        .main-info-wrapper {
+            width: 70%;
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .text-content {
+            width: 60%;
+        }
+
+        .text-content h2 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            letter-spacing: 2px;
+            color: #9B2E52;
+            margin-bottom: 20px;
+        }
+
+        .text-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .image {
+            width: 40%;
+        }
+
+        .image img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .footer {
+            width: 100%;
+            min-height: 150px;
+            background-color: #9B2E52;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 10%;
+        }
+
+        .footer-logo {
+            width: 200px;
+            height: 75px;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-column h3 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #ffb3c6;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+            background-color: #7a223f;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 900px) {
+            .content { flex-direction: column; }
+            .sidebar-titles, .main-info-wrapper { width: 100%; }
+            .main-info-wrapper { flex-direction: column; }
+            .text-content, .image { width: 100%; }
+        }
+
+        @media (max-width: 700px) {
+            .navbar { padding: 15px 25px; height: 80px; }
+            nav { gap: 10px; }
+            nav a { font-size: 11px; }
+            .banner, .header { height: 500px; }
+            .banner-title { font-size: 42px; }
+            .banner-subtitle { font-size: 22px; letter-spacing: 8px; }
+            .content { padding: 60px 8%; }
+            .footer { flex-wrap: wrap; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <div class="logo">
+                <img src="Itoshi Sae Logo.png" alt="Itoshi Sae Logo">
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <span>|</span>
+                <a href="#about">About</a>
+                <span>|</span>
+                <a href="#gallery">Gallery</a>
+                <span>|</span>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+
+        <div class="banner" id="home">
+            <div class="Banner1">
+                <h1 class="banner-title">ITOSHI SAE</h1>
+                <p class="banner-subtitle">糸師 冴</p>
+            </div>
+            <div class="Banner2">
+                <h1 class="banner-title">ITOSHI SAE</h1>
+                <p class="banner-subtitle">糸師 冴</p>
+            </div>
+            <div class="Banner3">
+                <h1 class="banner-title">ITOSHI SAE</h1>
+                <p class="banner-subtitle">糸師 冴</p>
+            </div>
+            <div class="Banner4">
+                <h1 class="banner-title">ITOSHI SAE</h1>
+                <p class="banner-subtitle">糸師 冴</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="content" id="about">
+        <div class="sidebar-titles">
+            <div class="title-box">The Prodigy</div>
+            <div class="title-box">Genius Midfielder</div>
+            <div class="title-box">Underlashes Senior</div>
+            <div class="title-box">Japan's Treasure</div>
+        </div>
+
+        <div class="main-info-wrapper">
+            <div class="text-content">
+                <h2>ABOUT ITOSHI SAE</h2>
+                <p>Itoshi Sae is one of the most talented football players in Blue Lock and is the older brother of Itoshi Rin.</p>
+                <p>He is a highly skilled midfielder who plays with incredible accuracy, vision, and technique.</p>
+                <p>Sae is known for his calm, confident, and somewhat cold personality.</p>
+                <p>He once aimed to become the best striker in the world, but later chose to focus on being a midfielder. He is considered one of Japan’s greatest young football talents.</p>
+            </div>
+
+            <div class="image" id="gallery">
+                <img src="Itoshi Sae Gallery.jpg" alt="Itoshi Sae">
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer-logo">
+            <img src="Itoshi Sae Logo.png" alt="Itoshi Sae Logo">
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Link</h3>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Info</h3>
+            <a href="#">Profile</a>
+            <a href="#">Blue Lock</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Social Media</h3>
+            <a href="https://www.instagram.com/sal.sae1010" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.tiktok.com/@U1010salsae" target="_blank" rel="noopener noreferrer">TikTok</a>
+
+</div>
+    </footer>
+
+    <div class="copyright">
+        © 2026 Itoshi Sae Fan Base
+    </div>
+
+</body>
+</html>
