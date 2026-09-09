@@ -168,6 +168,10 @@
             background-color: #fff;
         }
 
+        input[type="radio"] {
+            display: none;
+        }
+
         .sidebar-titles {
             width: 30%;
             display: flex;
@@ -176,6 +180,7 @@
         }
 
         .title-box {
+            display: block;
             background-color: #9B2E52;
             color: white;
             padding: 20px 25px;
@@ -187,12 +192,22 @@
             box-shadow: 0 4px 10px rgba(155, 46, 82, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
+            user-select: none;
         }
 
         .title-box:hover {
             background-color: #7a223f;
             transform: translateX(8px);
             box-shadow: 0 6px 15px rgba(155, 46, 82, 0.4);
+        }
+
+        #tab1:checked ~ .content .sidebar-titles label[for="tab1"],
+        #tab2:checked ~ .content .sidebar-titles label[for="tab2"],
+        #tab3:checked ~ .content .sidebar-titles label[for="tab3"],
+        #tab4:checked ~ .content .sidebar-titles label[for="tab4"] {
+            background-color: #7a223f;
+            border-left: 6px solid #ffb3c6;
+            transform: translateX(8px);
         }
 
         .main-info-wrapper {
@@ -204,12 +219,30 @@
 
         .text-content {
             width: 60%;
+            position: relative;
+        }
+
+        .text-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #tab1:checked ~ .content .text-panel#panel1,
+        #tab2:checked ~ .content .text-panel#panel2,
+        #tab3:checked ~ .content .text-panel#panel3,
+        #tab4:checked ~ .content .text-panel#panel4 {
+            display: block;
         }
 
         .text-content h2 {
             font-family: "Montserrat", sans-serif;
             font-weight: 800;
-            font-size: 36px;
+            font-size: 32px;
             letter-spacing: 2px;
             color: #9B2E52;
             margin-bottom: 20px;
@@ -308,6 +341,10 @@
     </style>
 </head>
 <body>
+    <input type="radio" name="tab-menu" id="tab1" checked>
+    <input type="radio" name="tab-menu" id="tab2">
+    <input type="radio" name="tab-menu" id="tab3">
+    <input type="radio" name="tab-menu" id="tab4">
 
     <header class="header">
         <div class="navbar">
@@ -347,19 +384,42 @@
 
     <main class="content" id="about">
         <div class="sidebar-titles">
-            <div class="title-box">The Prodigy</div>
-            <div class="title-box">Genius Midfielder</div>
-            <div class="title-box">Underlashes Senior</div>
-            <div class="title-box">Japan's Treasure</div>
+            <label for="tab1" class="title-box">The Prodigy</label>
+            <label for="tab2" class="title-box">Genius Midfielder</label>
+            <label for="tab3" class="title-box">Underlashes Senior</label>
+            <label for="tab4" class="title-box">Japan's Treasure</label>
         </div>
 
         <div class="main-info-wrapper">
             <div class="text-content">
-                <h2>ABOUT ITOSHI SAE</h2>
-                <p>Itoshi Sae is one of the most talented football players in Blue Lock and is the older brother of Itoshi Rin.</p>
-                <p>He is a highly skilled midfielder who plays with incredible accuracy, vision, and technique.</p>
-                <p>Sae is known for his calm, confident, and somewhat cold personality.</p>
-                <p>He once aimed to become the best striker in the world, but later chose to focus on being a midfielder. He is considered one of Japan’s greatest young football talents.</p>
+                <div class="text-panel" id="panel1">
+                    <h2>THE PRODIGY</h2>
+                    <p>Since childhood, Itoshi Sae was recognized as an unmatchable football prodigy in Japan. Together with his younger brother, Itoshi Rin, they dominated youth leagues with ease.</p>
+                    <p>Sae possessed natural instincts and technical skills that went far beyond his age group, inspiring Rin to follow in his footsteps.</p>
+                    <p>However, after traveling to Europe to join Real Madrid's youth academy, Sae experienced the harsh reality of world-class football, which ultimately redefined his ambitions and football career forever.</p>
+                </div>
+
+                <div class="text-panel" id="panel2">
+                    <h2>GENIUS MIDFIELDER</h2>
+                    <p>Although Sae originally aimed to be the world's best striker, he shifted his path to become a playmaker—a genius midfielder who orchestrates the entire pitch.</p>
+                    <p>His passing accuracy is mathematically precise, reading defenders' movements in advance and delivering razor-sharp passes that force strikers to perform at their absolute limits.</p>
+                    <p>Sae values efficiency, logic, and calculated destruction over emotional gameplay, making him an unstoppable engine in midfield.</p>
+                </div>
+
+                <div class="text-panel" id="panel3">
+                    <h2>UNDERLASHES SENIOR</h2>
+                    <p>Characterized by his distinct long lower eyelashes and a sharp, composed gaze, Sae carries an aura of supreme confidence and intimidation.</p>
+                    <p>As the older brother, his relationship with Rin transformed from loving mentorship into a cold, competitive rivalry after returning from Madrid.</p>
+                    <p>Sae rarely shows emotions on or off the pitch, adopting a blunt and realistic attitude towards those who lack the talent or mindset to compete on the global stage.</p>
+                </div>
+
+                <div class="text-panel" id="panel4">
+                    <h2>JAPAN'S TREASURE</h2>
+                    <p>Sae is officially named one of the "New Generation World XI", making him a globally celebrated football prodigy and the pride of Japanese football.</p>
+                    <p>Despite his disdain for the conservative nature of traditional Japanese football, his skills remain the benchmark for what Japanese athletes can achieve internationally.</p>
+                    <p>His eventual participation in the Blue Lock vs. Japan U-20 match proved that he is not just a player, but a force capable of changing the future of Japanese sports forever.</p>
+                </div>
+
             </div>
 
             <div class="image" id="gallery">
@@ -390,8 +450,7 @@
             <h3>Social Media</h3>
             <a href="https://www.instagram.com/sal.sae1010" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://www.tiktok.com/@U1010salsae" target="_blank" rel="noopener noreferrer">TikTok</a>
-
-</div>
+        </div>
     </footer>
 
     <div class="copyright">
